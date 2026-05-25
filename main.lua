@@ -28,6 +28,14 @@ function love.keypressed(key)
             player.fuel = player.fuel - 1
         end
     end
+    if stan == "game-over" then
+        if key == "r" then
+            player.fuel = 100
+            player.x = love.graphics.getWidth() / 2 - 60
+            player.y = love.graphics.getHeight() / 2 - 60
+            stan = "game"
+        end
+    end
 end
 
 function love.draw()
@@ -47,5 +55,6 @@ function love.draw()
     end
     if stan == "game-over" then
         love.graphics.print("Game over!", love.graphics.getWidth() / 2 - 60, love.graphics.getHeight() / 2 - 60)
+        love.graphics.print("Press R to retry!", love.graphics.getWidth() / 2 - 60, love.graphics.getHeight() / 2)
     end
 end
